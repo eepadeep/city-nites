@@ -6,22 +6,24 @@
     <title>city-nites</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <style>
+        html,
         body {
+            height: 100%;
             margin: 0;
-            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
         }
         .content {
-            margin: 50px;
-            padding: 0;
-            border: solid;
-            width: 800px;
-            height: 600px;
+            flex: 1 1 auto;
         }
     </style>
 </head>
-
-<body>
-    <div id="content" class="content"></div>
-</body>
-
+    <body>
+        <div class="container">
+            <div id="content" class="content"></div>
+        </div>
+    </body>
 </html>
