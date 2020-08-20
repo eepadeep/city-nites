@@ -5,7 +5,6 @@ orbs:
 defaults: &defaults
   working_directory: ~/city-nites
 
-version: 2.1
 jobs:
   build:
     <<: *defaults
