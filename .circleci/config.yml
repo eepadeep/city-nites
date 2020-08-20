@@ -1,7 +1,27 @@
 version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.0.0
+
+defaults: &defaults
+  working_directory: ~/city-nites
+
+version: 2.1
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn build
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - ./
 workflows:
-  node-tests:
+  build:
     jobs:
-      - node/test
+      - build
