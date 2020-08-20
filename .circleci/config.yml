@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.0.0
+
+defaults: &defaults
+  working_directory: ~/city-nites
+
+jobs:
+  build:
+    <<: *defaults
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn build
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - ./
+workflows:
+  build:
+    jobs:
+      - build
